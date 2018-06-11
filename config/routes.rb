@@ -1,14 +1,35 @@
 Rails.application.routes.draw do
   
-  root to: 'posts#index'
-
+  
   devise_for :users, controller: {
-  	sessions: 'devise/sessions',
-  	registration: 'devise/registration'
+  	sessions: 'users/sessions',
+  	registration: 'users/registrations'
   }
-
-	get 'users/index'
-  devise_for :models
+  authenticated :user do
+    root to: 'posts#index'
+  end
+  unauthenticated do
+    devise_scope :user do
+      root to: 'users/sessions#new'
+    end
+  end
   resources :posts
+
+  devise_scope :user do
+	  get 'login', to: 'users/sessions#new'
+	  get 'signup', to: 'users/registrations#new'
+    delete 'signout', to: 'users/sessions#destroy'
+    delete '/users/sessions/destroy', to: 'users/sessions#destroy'
+	end
+
+  namespace :api do
+    namespace :v1 do
+      resources :sessions do
+        member do
+          delete :destroy_user
+        end
+    end
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
