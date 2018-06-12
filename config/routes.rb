@@ -27,8 +27,12 @@ Rails.application.routes.draw do
       resources :sessions do
         member do
           devise_scope :user do
-            delete :destroy_user
             get :destroy
+          end
+        end
+        collection do
+          devise_scope :user do
+            post :login
           end
         end
       end

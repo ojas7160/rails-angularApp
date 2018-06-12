@@ -11,6 +11,12 @@ var loginController = function($scope, $http){
 			}
 		})
 	}
+
+	$scope.login = function(user){
+		$http.post('/api/v1/sessions/login', {user: user}).then(function(response){
+			console.log(response)
+		})
+	}
 }
 
 var signupController = function($scope, $http){
