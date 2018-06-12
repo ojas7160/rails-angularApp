@@ -4,8 +4,11 @@ var loginController = function($scope, $http){
 	console.log('login')
 
 	$scope.logout = function(){
-		$http.delete('/api/v1/sessions/destroy_user', {token: }).then(function(response){
+		$http.get('/api/v1/sessions/destroy').then(function(response){
 			console.log(response)
+			if(response.data.success){
+				window.location.href = '/';
+			}
 		})
 	}
 }

@@ -1,4 +1,4 @@
-class Api::V1::SessionsController < ApplicationController
+class Api::V1::SessionsController < Devise::SessionsController
 
 	def destroy_user
 		p params[:token]
@@ -13,7 +13,12 @@ class Api::V1::SessionsController < ApplicationController
 		end
 	end
 
-	def login_user
-		
+	def destroy
+		signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(current_user))
+		if signed_out
+			render json: {data: signed_out, success: true}
+		else
+			render json: {success: false}
+		end
 	end
 end

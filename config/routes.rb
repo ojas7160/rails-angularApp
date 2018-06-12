@@ -26,8 +26,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :sessions do
         member do
-          delete :destroy_user
+          devise_scope :user do
+            delete :destroy_user
+            get :destroy
+          end
         end
+      end
     end
   end
 
