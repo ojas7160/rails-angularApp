@@ -15,6 +15,12 @@ var loginController = function($scope, $http){
 	$scope.login = function(user){
 		$http.post('/api/v1/sessions/login', {user: user}).then(function(response){
 			console.log(response)
+			if(response.data.success == false)
+				noty({text: response.data.message, type: 'warning'})
+			else{
+				noty({text: response.data.message, type: 'success'})
+				setTimeout(function(){window.location.reload();}, 1500);
+			}
 		})
 	}
 }

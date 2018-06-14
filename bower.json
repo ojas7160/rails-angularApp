@@ -1,0 +1,19 @@
+{
+  "name": "bloganaire",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [
+    "Ojaswi Wadhwa <ojas.vwadhwa1995@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

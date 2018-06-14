@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.5'
 # devise for signup/login
 gem 'devise'
 gem "slim-rails"
+gem 'noty-rails'
+gem 'jquery-rails'
 gem 'angularjs-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 # Use Redis adapter to run Action Cable in production
