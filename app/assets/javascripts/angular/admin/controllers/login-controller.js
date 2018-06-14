@@ -5,7 +5,6 @@ var loginController = function($scope, $http){
 
 	$scope.logout = function(){
 		$http.get('/api/v1/sessions/destroy').then(function(response){
-			console.log(response)
 			if(response.data.success){
 				window.location.href = '/';
 			}
@@ -14,7 +13,6 @@ var loginController = function($scope, $http){
 
 	$scope.login = function(user){
 		$http.post('/api/v1/sessions/login', {user: user}).then(function(response){
-			console.log(response)
 			if(response.data.success == false)
 				noty({text: response.data.message, type: 'warning'})
 			else{
@@ -27,6 +25,12 @@ var loginController = function($scope, $http){
 
 var signupController = function($scope, $http){
 
+	$scope.signup = function(user){
+		console.log(user)
+		$http.post('/api/v1/registrations', {user: user}).then(function(response){
+			console.log(response)
+		})
+	}
 }
 
 loginSignUpController.controller('loginController', ['$scope', '$http', loginController])

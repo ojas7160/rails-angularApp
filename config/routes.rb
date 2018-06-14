@@ -36,6 +36,9 @@ Rails.application.routes.draw do
           end
         end
       end
+      devise_scope :user do
+        resources :registrations
+      end
     end
   end
 
