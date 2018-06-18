@@ -1,0 +1,6 @@
+.container
+	ul
+		-@users.all.each do |user|
+			li 
+				a href="/users/#{user.id}"
+					=user.name ? user.name : user.email

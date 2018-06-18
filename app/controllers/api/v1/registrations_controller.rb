@@ -14,7 +14,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
 				if @user.blank?
 					@new_user = User.create(email: dummy_params[:email], password: dummy_params[:password])
 					if @new_user.save
-						sign_up(@new_user)
+						# sign_up(@new_user)
 						render json: {message: 'User successfully signed up', success: true}
 					else
 						render json: {message: 'Something went wrong', success: false}

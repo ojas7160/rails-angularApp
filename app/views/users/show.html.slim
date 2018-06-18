@@ -1,0 +1,14 @@
+.container
+	-if @user.name
+		=@user.name
+	-else
+		=@user.email
+	-if @posts.present?
+		div
+			| Posts
+		-@posts.all.each do |post|
+			=post.title
+			br/
+			=post.description
+			br/
+
