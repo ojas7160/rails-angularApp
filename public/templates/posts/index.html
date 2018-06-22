@@ -1,0 +1,29 @@
+<div class="container" ng-controller="postController">
+  <div class="page-header">
+    <h1>Posts</h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="post in posts">
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.description}}</td>
+        <td>{{post.created_at}}</td>
+        <td>
+          <button class="btn btn-default">Show</button>
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

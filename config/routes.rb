@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   	registration: 'users/registrations'
   }
   authenticated :user do
-    root to: 'posts#index'
+    root to: 'application#home'
   end
   unauthenticated do
     devise_scope :user do
