@@ -8,6 +8,15 @@ var postController = function($scope, $http){
 			console.log(response)
 		})
 	}
+
+	var posts = function(){
+		$http.get('/api/v1/posts').then(function(response){
+			console.log(response)
+			$scope.posts = response.data.data
+		})
+	}
+
+	posts()
 }
 
 postControllerModule.controller('postController', ['$scope', '$http', postController])
