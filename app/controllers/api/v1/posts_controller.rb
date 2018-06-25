@@ -59,7 +59,7 @@ class Api::V1::PostsController < ApplicationController
 		end
 
 		def post
-			@post = Post.find(params[:id])
+			@post = Post.friendly.find(params[:id])
 			p @post
 		end
 end

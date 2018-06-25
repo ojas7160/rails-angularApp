@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # devise for signup/login
 gem 'devise'
+gem 'friendly_id', '~> 5.1.0'
 gem "slim-rails"
 gem 'noty-rails'
 gem 'jquery-rails'

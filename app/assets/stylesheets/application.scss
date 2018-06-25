@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.swal-overlay{
+	.swal-modal{
+		.swal-footer{
+			text-align: center !important;
+		}
+	}
+}
