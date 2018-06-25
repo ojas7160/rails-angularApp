@@ -19,9 +19,10 @@
 //= require noty/themes/default
 //= require angular-route
 //= require activestorage
-//= require turbolinks
 //= require_tree ./angular
 
+
+// require turbolinks
 
 
 $(function() {

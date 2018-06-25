@@ -17,6 +17,12 @@ var postController = function($scope, $http){
 	}
 
 	posts()
+
+	$scope.delete = function(post){
+		$http.delete('/api/v1/posts/'+post.id).then(function(response){
+			console.log(response)
+		})
+	}
 }
 
 postControllerModule.controller('postController', ['$scope', '$http', postController])

@@ -19,11 +19,12 @@
         <td>{{post.description}}</td>
         <td>{{post.created_at}}</td>
         <td>
-          <button class="btn btn-default">Show</button>
-          <button class="btn btn-secondary">Edit</button>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-default" ng-click="show(post)">Show</button>
+          <button class="btn btn-secondary" ng-click="edit(post)">Edit</button>
+          <button class="btn btn-danger" ng-click="delete(post)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+  <a class="btn btn-primary" ng-href="/posts/new">new</a>
 </div>

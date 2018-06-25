@@ -2,4 +2,6 @@
 <div class="page-header container">
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+<div ng-controller="postController">
+	<%= render :partial => 'form' %>
+</div>
