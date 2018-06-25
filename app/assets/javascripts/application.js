@@ -17,6 +17,7 @@
 //= require noty/jquery.noty
 //= require noty/layouts/bottom
 //= require noty/themes/default
+//= require sweetalert
 //= require angular-route
 //= require activestorage
 //= require_tree ./angular

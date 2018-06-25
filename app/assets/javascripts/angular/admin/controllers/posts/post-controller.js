@@ -19,8 +19,12 @@ var postController = function($scope, $http){
 	posts()
 
 	$scope.delete = function(post){
+		sweetAlert("Awesome!");
 		$http.delete('/api/v1/posts/'+post.id).then(function(response){
 			console.log(response)
+			if(response.data.success){
+				noty({text: response.data.message, type: 'success'})
+			}
 		})
 	}
 }
