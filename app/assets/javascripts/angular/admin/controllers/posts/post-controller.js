@@ -19,13 +19,50 @@ var postController = function($scope, $http){
 	posts()
 
 	$scope.delete = function(post){
-		sweetAlert("Awesome!");
-		$http.delete('/api/v1/posts/'+post.id).then(function(response){
-			console.log(response)
-			if(response.data.success){
-				noty({text: response.data.message, type: 'success'})
-			}
-		})
+		swal({
+      title: "Are you sure?",
+      text: "You want to delete this ingredient!",
+      icon: "warning",
+      buttons: [
+        'No, cancel it!',
+        'Yes, I am sure!'
+      ],
+      dangerMode: true,
+    }).then(function(isConfirm) {
+    	if (isConfirm) {
+				console.log('ahjsghjasgj')
+				$http.delete('/api/v1/posts/'+post.id).then(function(response){
+					console.log(response)
+					if(response.data.success){
+						noty({text: response.data.message, type: 'success'})
+					}
+				})
+			}else {
+        swal("Cancelled", "Your post is safe :)", "error");
+      }
+     })
+
+		// swal({
+		// 	title: "Do you really want to delete this post?",
+		// 	text: "",
+		// 	icon: "warning",
+		// 	buttons: [
+		// 		'No, cancel it!',
+		// 		'Yes, I am sure!'
+		// 	],
+		// 	dangerMode: true,
+		// }).then(function(isConfirm) {
+		// 	if (isConfirm) {
+			 // $http.delete('/api/v1/posts/'+post.id).then(function(response){
+				// 	console.log(response)
+				// 	if(response.data.success){
+				// 		noty({text: response.data.message, type: 'success'})
+				// 	}
+				// })
+		// 	} else {
+		// 		noty({text: 'Your post is safe :)', type: 'success'})
+		// 	}
+		// })
 	}
 }
 

@@ -46,7 +46,7 @@ class Api::V1::PostsController < ApplicationController
 
 	def destroy
 		if @post.destroy
-			render json: {success: true}
+			render json: {success: true, message: 'Your Post has been deleted successfully.'}
 		else
 			render json: {success: false}
 		end
