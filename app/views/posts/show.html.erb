@@ -15,11 +15,11 @@
 
   <div>
     <a href='/posts' class="btn btn-secondary">Back</a>
-    <a href="/posts/{{post.id}}/edit" class="btn btn-primary">Edit</a>
+    <a href="/posts/{{post.slug}}/edit" class="btn btn-primary">Edit</a>
     <button class="btn btn-danger" ng-click="delete(post)">Delete</button>
   </div>
 </div>
 
 <script>
-  var postId = <%= params[:id]%>
+  var postId = <%= @post.id %>
 </script>

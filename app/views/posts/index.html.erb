@@ -23,8 +23,8 @@
         <td>{{post.description}}</td>
         <td>{{post.created_at}}</td>
         <td>
-          <a href="/posts/{{post.id}}" class="btn btn-default">Show</a>
-          <a href="/posts/{{post.id}}/edit" class="btn btn-secondary">Edit</a>
+          <a href="/posts/{{post.slug}}" class="btn btn-default">Show</a>
+          <a href="/posts/{{post.slug}}/edit" class="btn btn-secondary">Edit</a>
           <button class="btn btn-danger" ng-click="delete(post)">Delete</button>
         </td>
       </tr>
