@@ -58,3 +58,12 @@ $(function() {
   //   noty({text: noty_option, type: "notice"});
   // }
 });
+
+$(function(){
+  // $('.flash').fadeIn('slow');
+  $('.flash').hide().fadeIn('slow');
+  $('.flash').delay(1500).fadeOut();
+  // setTimeout(function(){
+  //     $('.flash').fadeOut('slow');
+  // },1000);
+});

@@ -13,9 +13,10 @@ nav.navbar.navbar-inverse.border-none[ng-controller="loginController"]
 		ul.nav.navbar-nav.navbar-right
 			-if user_signed_in?
 				li
-					a[href="" ng-click="logout()"]
-						span.glyphicon.glyphicon-log-out
-						|  Logout
+					=link_to 'Logout', destroy_user_session_path, method: :delete
+					/ a[href="" ng-click="logout()"]
+					/ 	span.glyphicon.glyphicon-log-out
+					/ 	|  Logout
 			-else
 				li
 					a[href="/signup"]
