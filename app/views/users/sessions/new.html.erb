@@ -1,28 +1,62 @@
 <div class="container">
-  <h2>Log in</h2>
-
-   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
+  <div class="" style="padding:35px 50px;">
+    <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+  </div>
+  <div  style="padding:40px 50px;">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name,  role: "form")) do |f| %>
       <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :email do %>
+        <span class="glyphicon glyphicon-user"></span>Email
+        <% end %> <br />
+        <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email" %>
       </div>
-    <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+      <div class="field">
+        <%= f.label :password do %>
+        <span class="glyphicon glyphicon-eye-open"></span> Password
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <!-- <%= f.submit "Log in" %> -->
+        <%= button_tag(type: 'submit', class: "btn btn-success btn-block", id: 'validForm') do %>
+          <span class="glyphicon glyphicon-off"></span> Login
+        <% end %>
+      </div>
+    <% end %> 
+  </div>
+
+
+  <!-- <div class="modal-content">
+    <div class="modal-header" style="padding:35px 50px;">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
     </div>
-  <% end %> 
+    <div class="modal-body" style="padding:40px 50px;">
+      <form role="form">
+        <div class="form-group">
+          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+          <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+          <input type="text" class="form-control" id="psw" placeholder="Enter password">
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="" checked>Remember me</label>
+        </div>
+          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+      </form>
+    </div>
+  </div> -->
 
   <!-- <form ng-controller="loginController">
     <div class="field">
