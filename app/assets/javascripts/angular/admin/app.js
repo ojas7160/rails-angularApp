@@ -18,3 +18,10 @@ var app =  angular.module('myAdmin', ['myAdmin.controllers', 'ngRoute']);
 // 		controller: 'postController'
 // 	})
 // })
+
+app.filter('Demofilter',function(){
+  return function(input)
+  {
+    return input + " Tutorial"
+  }
+});

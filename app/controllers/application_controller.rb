@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 	skip_before_action :verify_authenticity_token
+	before_action :authenticate_user!
 
 
 	def authorized
@@ -8,4 +9,14 @@ class ApplicationController < ActionController::Base
 			flash[:notice] = "Login first" 
 		end
 	end
+
+	protected
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to "/login"
+			flash[:notice] = "Login first" 
+    end
+  end
 end
