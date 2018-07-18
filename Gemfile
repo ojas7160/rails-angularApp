@@ -27,6 +27,7 @@ gem 'noty-rails'
 gem 'jquery-rails'
 gem 'angularjs-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'paperclip'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

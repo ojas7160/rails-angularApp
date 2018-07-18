@@ -10,6 +10,8 @@ class Api::V1::PostsController < ApplicationController
 	end
 
 	def create
+		p params
+		p '============='
 		@post = Post.create(post_params)
 		if @post.save
 			render json: {data: @post, success: true}
@@ -55,7 +57,7 @@ class Api::V1::PostsController < ApplicationController
 
 	private
 		def post_params
-			params.require(:post).permit(:title, :description).merge(user_id: current_user.id)
+			params.require(:post).permit(:title, :description, :image).merge(user_id: current_user.id)
 		end
 
 		def post

@@ -17,6 +17,7 @@
 //= require noty/jquery.noty
 //= require noty/layouts/bottom
 //= require noty/themes/default
+//= require ng-file-upload/ng-file-upload.min.js
 //= require angular-route
 //= require activestorage
 //= require_tree ./angular

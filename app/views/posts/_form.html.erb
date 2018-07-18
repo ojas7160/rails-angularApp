@@ -55,8 +55,13 @@
       <textarea class="form-control" ng-model="post.description" placeholder="Enter description"></textarea>
     </div>
     <div class="form-group">
+      <label class="control-label">Upload Image</label>
+      <input type="file" class="form-control" ng-model="post.image" placeholder="Upload image" ngf-select type="file" ngf-keep="true" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">
+    </div>
+    <div class="form-group">
       <button class="btn btn-primary" ng-click="submit(post)">Submit</button>
     </div>
+
   </form>
 </div>
 

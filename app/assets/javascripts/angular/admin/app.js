@@ -1,7 +1,7 @@
 angular.module('myAdmin.controllers',[]);
 angular.module('myAdmin.services',[]);
 angular.module('myAdmin.directives',[]);
-var app =  angular.module('myAdmin', ['myAdmin.controllers', 'ngRoute']);
+var app =  angular.module('myAdmin', ['myAdmin.controllers', 'ngRoute', 'ngFileUpload']);
 
 // app.config(function($routeProvider){
 // 	$routeProvider.when('/', {
