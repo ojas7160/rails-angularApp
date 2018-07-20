@@ -4,22 +4,20 @@ var postController = function($scope, $http, Upload){
 
 	$scope.submit = function(post){
 		console.log("post", post);
-		// Upload.upload({
-		// 	url: '/api/v1/posts',
-		// 	method: 'post',
-		// 	data: 
-		// 		post = {
-		// 			title: post.title,
-		// 			description: post.description,
-		// 			image: post.image
-		// 		}
-		// }).then(function(response){
-		// 	console.log(response)
-		// });
-
-		$http.post('/api/v1/posts', post).then(function(response){
+		if(post.image){
+			post.image = post.image[0]
+		}
+		Upload.upload({
+			url: '/api/v1/posts',
+			method: 'post',
+			data: {post}
+		}).then(function(response){
 			console.log(response)
-		})
+		});
+
+		// $http.post('/api/v1/posts', post).then(function(response){
+		// 	console.log(response)
+		// })
 	}
 
 	var posts = function(){
