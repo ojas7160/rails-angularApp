@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   friendly_id :title, use: [:slugged, :finders]
 
   has_attached_file :image,
-		styles: { mini: '48x48>', small:'100x100>', post:'240x240>', large: '600x600>' },
+		styles: { mini: '48x48>', small:'100x100>', thumb:'240x240>', large: '600x600>' },
 		default_style: :post,
 		url: '/posts/:id/:style/:basename.:extension',
 		path: ':rails_root/public/post_images/posts/:id/:style/:basename.:extension',

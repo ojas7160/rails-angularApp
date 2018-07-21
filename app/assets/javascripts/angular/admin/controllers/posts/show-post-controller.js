@@ -4,6 +4,8 @@ var showPostController = function($http, $scope){
 	$http.get('/api/v1/posts/'+postId).then(function(response){
 		console.log(response)
 		$scope.post = response.data.data
+		$scope.postImage = response.data.image
+		$scope.postImage = $scope.postImage.split('?')[0]
 	})
 
 	$scope.delete = function(post){

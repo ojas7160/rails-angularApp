@@ -22,7 +22,7 @@ class Api::V1::PostsController < ApplicationController
 
 	def show
 		if @post.present?
-			render json: {data: @post, success: true}
+			render json: {data: @post, success: true, image: @post.image}
 		else
 			render json: {success: false}
 		end
@@ -62,6 +62,5 @@ class Api::V1::PostsController < ApplicationController
 
 		def post
 			@post = Post.friendly.find(params[:id])
-			p @post
 		end
 end
