@@ -36,71 +36,46 @@
     </div>
   </div>
   <div class="col-md-5 card-look">
-    <h2>Sign up</h2>
-    <%= form_for(resource, as: resource_name, id: 'signup-form', url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+    <div class="" style="padding:35px 50px;">
+      <h4><span class="glyphicon glyphicon-lock"></span> SignUp</h4>
+    </div>
+    <div style="padding: 40px 50px;">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+        <div class="field">
+          <%= f.label :email do %>
+            <span class="glyphicon glyphicon-user"></span>Email
+          <% end %> <br />
+          <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+        <div class="field">
+          <%= f.label :password do %>
+            <span class="glyphicon glyphicon-eye-open"></span> Password
+          <% end %><br />
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+        <div class="field">
+          <%= f.label :password_confirmation do %>
+            <span class="glyphicon glyphicon-eye-open"></span> Password Confirmation
+          <% end %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
+        <div class="actions">
+          <!-- <%= f.submit "Sign up" %> -->
+          <%= button_tag(type: 'submit', class: "btn btn-success btn-block", id: 'validForm') do %>
+            <span class="glyphicon glyphicon-off"></span> Sign Up
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-
-  <!-- <div class="modal-content">
-    <div class="modal-header" style="padding:35px 50px;">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-    </div>
-    <div class="modal-body" style="padding:40px 50px;">
-      <form role="form">
-        <div class="form-group">
-          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-          <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-          <input type="text" class="form-control" id="psw" placeholder="Enter password">
-        </div>
-        <div class="checkbox">
-          <label><input type="checkbox" value="" checked>Remember me</label>
-        </div>
-          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-      </form>
-    </div>
-  </div> -->
-
-  <!-- <form ng-controller="loginController">
-    <div class="field">
-      <label>Email</label>
-      <input ng-model="user.email" type="email" placeholder="Enter email">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input ng-model="user.password" type="password" placeholder="Enter email">
-    </div>
-    <div class="actions">
-      <button class="btn btn-default" ng-click="login(user)">Log in</button>
-    </div>
-  </form> -->
   <div class="col-md-12">
     <%= render "devise/shared/links" %>
   </div>

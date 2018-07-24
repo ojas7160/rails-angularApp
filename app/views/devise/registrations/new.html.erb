@@ -1,55 +1,41 @@
 <div class="container">
-  <h2>Sign up</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <div class="" style="padding:35px 50px;">
+    <h4><span class="glyphicon glyphicon-lock"></span> SignUp</h4>
+  </div>
+  <div style="padding: 40px 50px;">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="field">
+        <%= f.label :email do %>
+          <span class="glyphicon glyphicon-user"></span>Email
+        <% end %> <br />
+        <%= f.email_field :email, autofocus: true, class:"form-control", autocomplete: "email" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <%= f.label :password do %>
+          <span class="glyphicon glyphicon-eye-open"></span> Password
+        <% end %><br />
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-    </div>
+      <div class="field">
+        <%= f.label :password_confirmation do %>
+          <span class="glyphicon glyphicon-eye-open"></span> Password Confirmation
+        <% end %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
-
-  <!-- <div class="container" ng-controller="signupController">
-    <div class="row">
-      <h2>Sign up</h2>
-      <form class="form-horizontal" ng-controller="loginController">
-        <div class="form-group">
-          <label class="control-label">Email</label>
-          <input class="form-control" ng-model="user.email" type="email" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label class="control-label">Password</label>
-          <input class="form-control" ng-model="user.password" type="password" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label class="control-label">Confirm Password</label>
-          <input class="form-control" ng-model="user.confirm_password" type="password" placeholder="Enter email">
-        </div>
-        <div class="actions col-md-5">
-          <button class="btn btn-default" ng-click="signup(user)">Sign up</button>
-        </div>
-      </form>
-
-    </div> -->
-    <%= render "devise/shared/links" %>
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "devise/shared/links" %>
 </div>
-<!-- </div> -->
 
 
