@@ -2,7 +2,7 @@ class Api::V1::PostsController < ApplicationController
 	before_action :post, except: [:create, :new, :index]
 
 	def index
-		@posts = Post.all
+		@posts = Post.where(user_id: current_user.id)
 		render json: {data: @posts, success: true}
 	end
 
@@ -21,6 +21,7 @@ class Api::V1::PostsController < ApplicationController
 	end
 
 	def show
+		@image = @post.image
 		if @post.present?
 			render json: {data: @post, success: true, image: @post.image}
 		else
