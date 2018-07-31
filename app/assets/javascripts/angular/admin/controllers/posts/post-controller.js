@@ -24,6 +24,7 @@ var postController = function($scope, $http, Upload){
 		$http.get('/api/v1/posts').then(function(response){
 			console.log(response)
 			$scope.posts = response.data.data
+			$scope.currentUserId = response.data.currentUserId
 		})
 	}
 

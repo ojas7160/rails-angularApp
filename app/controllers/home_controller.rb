@@ -5,6 +5,6 @@ class HomeController < ApplicationController
 	end
 
 	def home
-		redirect_to '/login'
+		# redirect_to '/login'
 	end
 end

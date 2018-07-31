@@ -3,7 +3,7 @@ class Api::V1::PostsController < ApplicationController
 
 	def index
 		@posts = Post.where(user_id: current_user.id)
-		render json: {data: @posts, success: true}
+		render json: {data: @posts, success: true, currentUserId: current_user.id}
 	end
 
 	def new

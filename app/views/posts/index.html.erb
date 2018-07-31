@@ -1,5 +1,5 @@
 <div class="container" ng-controller="postController">
-  <div class="page-header">
+  <div class="">
     <h1>Posts</h1>
   </div>
   <table class="table table-striped">
@@ -22,7 +22,7 @@
         </td>
         <td>{{post.description}}</td>
         <td>{{post.created_at}}</td>
-        <td>
+        <td ng-if="currentUserId == post.user_id">
           <a href="/posts/{{post.slug}}" class="btn btn-default">Show</a>
           <a href="/posts/{{post.slug}}/edit" class="btn btn-secondary">Edit</a>
           <button class="btn btn-danger" ng-click="delete(post)">Delete</button>
