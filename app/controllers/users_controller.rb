@@ -29,6 +29,11 @@ class UsersController < ApplicationController
 		@user.destroy
 	end
 
+	def currentUser
+		@user = current_user
+		render json: {user: @user}
+	end
+
 	private
 		def set_user
 		end

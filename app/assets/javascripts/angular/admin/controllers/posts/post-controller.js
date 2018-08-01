@@ -2,6 +2,25 @@ postControllerModule = angular.module('myAdmin.controllers')
 
 var postController = function($scope, $http, Upload){
 
+	var posts = function(){
+		$http.get('/api/v1/posts').then(function(response){
+			console.log(response)
+			$scope.posts = response.data.data
+			$scope.currentUserId = response.data.currentUserId
+		})
+	}
+
+	posts()
+
+	var getUser = function(){
+		$http.get('/users/currentUser').then(function(response){
+			console.log(response)
+			$scope.user = response.data.user
+		})
+	}
+
+	getUser()
+	
 	$scope.submit = function(post){
 		console.log("post", post);
 		if(post.image){
@@ -19,16 +38,6 @@ var postController = function($scope, $http, Upload){
 		// 	console.log(response)
 		// })
 	}
-
-	var posts = function(){
-		$http.get('/api/v1/posts').then(function(response){
-			console.log(response)
-			$scope.posts = response.data.data
-			$scope.currentUserId = response.data.currentUserId
-		})
-	}
-
-	posts()
 
 	$scope.delete = function(post){
 		swal({

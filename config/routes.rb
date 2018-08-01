@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 	  get 'signup', to: 'users/registrations#new'
     delete 'signout', to: 'users/sessions#destroy'
     delete '/users/sessions/destroy', to: 'users/sessions#destroy'
+    post '/users/sessions/create', to: 'users/sessions#create'
 	end
 
   namespace :api do
@@ -42,7 +43,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
-
+  resources :users do
+    collection do
+      get :currentUser
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
