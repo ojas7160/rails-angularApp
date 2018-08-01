@@ -5,14 +5,23 @@
   </div>
 
   <div class="col-md-6">
-    <div class="card-look mb-20" ng-repeat="post in posts">
-      <div class="">
-        <a href="/posts/{{post.slug}}">
-          <b>Title:</b> {{post.title}}
-        </a>
+    <div class="card-look mb-20 p-30" ng-repeat="post in posts">
+      <div class="col-md-4">
+        <img src="{{post.image}}" width="80" height="80">
+      </div>
+      <div class="col-md-8">
+        <div>
+          <a href="/posts/{{post.slug}}">
+            <b>Title:</b> {{post.title}}
+          </a>
+        </div>
+        <div>
+          <b>Description:</b> {{post.description}}
+        </div>
       </div>
       <div class="">
-        <b>Description:</b> {{post.description}}
+        <button class="btn btn-secondary">Like</button>
+        <button class="btn btn-danger">Dislike</button>
       </div>
     </div>
   </div>
