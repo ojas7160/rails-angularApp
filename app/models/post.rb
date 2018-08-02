@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 	belongs_to :user
-	
+	has_many :votes, as: :resource
+
 	extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
