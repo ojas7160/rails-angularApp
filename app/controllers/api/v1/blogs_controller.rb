@@ -27,13 +27,32 @@ class Api::V1::BlogsController < ApplicationController
   end
 
   def edit
-
+    if @blog.present?
+      render json: @blog
+    else
+      render json: {success: false, message: 'No Blog to edit'}
+    end
   end
 
   def update
+    if @blog.present?
+      if @blog.update_attributes(blog_params)
+        render json: {data: @blog, success: true}
+      else
+        render json: {success: false, message: 'Not updated, try again.'}
+      end
+    else
+    end
   end
 
   def destroy
+    if @blog.present?
+      if @blog.destroy
+        render json: {success: true}
+      else
+        render json: {success: false}
+      end
+    end
   end
 
   private
