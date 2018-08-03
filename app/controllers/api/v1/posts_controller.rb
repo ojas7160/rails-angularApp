@@ -4,6 +4,8 @@ class Api::V1::PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		render json: {data: ActiveModel::Serializer::CollectionSerializer.new(@posts, each_serializer: PostSerializer), success: true, currentUserId: current_user.id}
+		# Spree::OrderSerializer.new(@order) for singular serializer
+		# ActiveModel::Serializer::CollectionSerializer.new(@posts, each_serializer: PostSerializer) for collection serializer
 	end
 
 	def new

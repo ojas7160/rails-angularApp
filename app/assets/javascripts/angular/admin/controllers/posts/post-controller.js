@@ -69,7 +69,6 @@ var postController = function($scope, $http, Upload){
 		$scope.vote = {value: 1, resource_id: post.id, resource_type: "Post"}
 		$http.post('/api/v1/votes', {vote: $scope.vote}).then(function(response){
 			console.log(response)
-			console.log(response.data.data.resource_id)
 			if(response.data.success){
 				$scope.posts[index].likes += 1
 			}
