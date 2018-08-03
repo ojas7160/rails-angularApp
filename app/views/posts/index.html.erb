@@ -22,8 +22,10 @@
         </div>
       </div>
       <div class="">
-        <button class="btn btn-secondary">Like</button>
-        <button class="btn btn-danger">Dislike</button>
+        <span>{{post.likes}}</span>
+        <button class="btn btn-secondary" ng-click="like(post, $index)">Like</button>
+        <span>{{post.dislikes}}</span>
+        <button class="btn btn-danger" ng-click="dislike(post, $index)">Dislike</button>
       </div>
     </div>
   </div>

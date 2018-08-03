@@ -11,7 +11,13 @@ class Post < ApplicationRecord
 		url: '/posts/:id/:style/:basename.:extension',
 		path: ':rails_root/public/post_images/posts/:id/:style/:basename.:extension',
 		convert_options: { all:'-strip -auto-orient -colorspace sRGB' }
-  validates_attachment :image,
-    presence: true,
-    content_type: { content_type: /\Aimage\/.*\Z/ } 
+  validates_attachment :image,presence: true,content_type: { content_type: /\Aimage\/.*\Z/ } 
+	
+	def likes
+		self.votes.where(value: 1).count
+	end
+
+	def dislikes
+		self.votes.where(value: -1).count
+	end
 end

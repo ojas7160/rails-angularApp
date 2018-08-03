@@ -2,8 +2,8 @@ class Api::V1::PostsController < ApplicationController
 	before_action :post, except: [:create, :new, :index]
 
 	def index
-		@posts = Post.where(user_id: current_user.id)
-		render json: {data: @posts, success: true, currentUserId: current_user.id}
+		@posts = Post.all
+		render json: {data: ActiveModel::Serializer::CollectionSerializer.new(@posts, each_serializer: PostSerializer), success: true, currentUserId: current_user.id}
 	end
 
 	def new
