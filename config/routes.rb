@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :blogs
+
   resources :users do
     collection do
       get :currentUser
