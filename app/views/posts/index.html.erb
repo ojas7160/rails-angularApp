@@ -29,40 +29,13 @@
       </div>
     </div>
   </div>
+
   <div class="col-md-3">
     <div class="card-look full-height">
       <div>
-        <h1>hello</h1>
+        hello
       </div>
     </div>
   </div>
-  <%# <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Created at</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="post in posts">
-        <td>{{post.id}}</td>
-        <td>
-          <a href="/posts/{{post.id}}">
-            {{post.title}}
-          </a>
-        </td>
-        <td>{{post.description}}</td>
-        <td>{{post.created_at}}</td>
-        <td ng-if="currentUserId == post.user_id">
-          <a href="/posts/{{post.slug}}" class="btn btn-default">Show</a>
-          <a href="/posts/{{post.slug}}/edit" class="btn btn-secondary">Edit</a>
-          <button class="btn btn-danger" ng-click="delete(post)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table> %>
   <a class="btn btn-primary" ng-href="/posts/new">new</a>
 </div>
