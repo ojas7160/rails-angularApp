@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myAdmin">
   <head>
     <title>Bloganaire</title>
     <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.3.8/packaged/jquery.noty.packaged.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
   </head>
-    <body ng-app="myAdmin" data-no-turbolink>
+    <body data-no-turbolink>
       <%= render partial: 'shared/header' %>
       <%if flash[:notice] %>
         <div class="flash" class="text-center devise-noty">
