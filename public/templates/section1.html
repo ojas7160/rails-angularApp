@@ -1,0 +1,30 @@
+<div ng-controller="appController">
+	<div class="span3">
+		<div class="well">
+			<ul class="nav nav-list">
+				<li ng-class="{active: ('s1.home' | routeSegmentStartsWith)}">
+					<a href="#/section1">Home</a>
+				</li>
+				
+				<li class="nav-header">Items</li>
+				
+				<li ng-repeat="i in items" ng-class="{active: ('s1.itemInfo' | routeSegmentStartsWith) && ('id' | routeSegmentParam) == i}">
+					<a ng-href="#/{{i}}">Item {{i}}</a>
+				</li>
+				
+				<li ng-class="{active: ('s1.prefs' | routeSegmentStartsWith)}">
+					<a href="#/prefs">Preferences</a>
+				</li>
+				
+				<li class="nav-header">Error handling</li>
+				
+				<li>
+					<button class="btn" ng-class="{active: test.btnClicked}" ng-click="test.btnClicked = !test.btnClicked">Click me!</button>
+					<span class="label" ng-show="test.btnClicked">Clicked</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+		
+	<div class="span9 anim" app-view-segment="1"></div>
+</div>

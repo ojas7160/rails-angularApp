@@ -78,26 +78,46 @@ var app =  angular.module('myAdmin', ['myAdmin.controllers', 'ngRoute', 'ngFileU
 // 	})
 // }])
 
-app.config(function($routeSegmentProvider){
+app.config(['$qProvider', function ($qProvider) {
+  $qProvider.errorOnUnhandledRejections(false);
+}]);
 
-	$routeSegmentProvider.
-	when('/', 'app').
-	when('/app/posts', 'app.posts').
-	when('/app/blogs', 'app.blogs').
+app.config(function($routeSegmentProvider, $routeProvider){
+	$routeSegmentProvider.options.autoLoadTemplates = true;
 
-	segment('app',{
-		templateUrl: 'templates/app/app.html',
+	$routeSegmentProvider
+	// when('/', 'app').
+	// when('/posts', 'app.posts').
+	// when('/blogs', 'app.blogs').
+	// when('/users', 'app.users').
+
+	.when('/section1',          's1')
+  .when('/section1/prefs',    's1.pref')
+  .when('/section1/:id',      's1.itemInfo')
+  .when('/section1/:id/X',    's1.itemInfo.tab1')
+  .when('/section1/:id/Y',    's1.itemInfo.tab2')
+
+	.segment('s1',{
+		templateUrl: 'templates/section1.html',
 		controller: 'appController'
-	}).
-	within().
-	segment('blogs',{
-		default: true,
-		templateUrl: 'templates/app/blogs.html',
-		controller: 'blogsController'
 	})
-	.segment('posts', {
-		templateUrl: 'templates/app/posts.html'
-	})
+	.within()
+
+		.segment('home', {
+			templateUrl: 'templates/section1/home.html',
+			controller: 'blogsController'
+		})
+		.segment('itemInfo',{
+			default: true,
+			templateUrl: 'templates/section1/item.html',
+			controller: 'blogsController'
+		})
+		.up()
+		.segment('pref', {
+			templateUrl: 'templates/section1/pref.html'
+		})
+
+	$routeProvider.otherwise({ redirectTo: '/section1' })
 })
 
 app.filter('Demofilter',function(){
