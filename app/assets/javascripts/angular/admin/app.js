@@ -86,38 +86,51 @@ app.config(function($routeSegmentProvider, $routeProvider){
 	$routeSegmentProvider.options.autoLoadTemplates = true;
 
 	$routeSegmentProvider
-	// when('/', 'app').
-	// when('/posts', 'app.posts').
-	// when('/blogs', 'app.blogs').
-	// when('/users', 'app.users').
 
-	.when('/section1',          's1')
-  .when('/section1/prefs',    's1.pref')
-  .when('/section1/:id',      's1.itemInfo')
-  .when('/section1/:id/X',    's1.itemInfo.tab1')
-  .when('/section1/:id/Y',    's1.itemInfo.tab2')
+	.when('/', 's1')
+	.when('/section1/home', 's1.home')
+  .when('/section1/test', 's1.test')
 
-	.segment('s1',{
-		templateUrl: 'templates/section1.html',
-		controller: 'appController'
-	})
-	.within()
+	$routeSegmentProvider.segment('s1', {
+    templateUrl: 'templates/section1.html',
+    controller: appController});
 
-		.segment('home', {
-			templateUrl: 'templates/section1/home.html',
-			controller: 'blogsController'
-		})
-		.segment('itemInfo',{
-			default: true,
-			templateUrl: 'templates/section1/item.html',
-			controller: 'blogsController'
-		})
-		.up()
-		.segment('pref', {
-			templateUrl: 'templates/section1/pref.html'
-		})
+	$routeSegmentProvider.within('s1').segment('home', {
+	  templateUrl: 'templates/section1/home.html',
+	  controller: blogsController});
 
-	$routeProvider.otherwise({ redirectTo: '/section1' })
+	$routeSegmentProvider.within('s1').segment('test', {
+    templateUrl: 'templates/section1/test.html',
+    controller: testController
+  });
+
+// $routeSegmentProvider.within('s1').within('itemInfo').segment('overview', {
+//     templateUrl: 'templates/section1/item/overview.html'});
+
+	// $routeSegmentProvider
+
+	// .when('/', 's1')
+	// .when('/section1/home', 's1.home')
+ //  .when('/section1/test', 's1.test')
+
+	// .segment('s1',{
+	// 	templateUrl: 'templates/section1.html',
+	// 	controller: 'appController'
+	// })
+	// .within()
+
+	// 	.segment('home', {
+	// 		templateUrl: 'templates/section1/home.html',
+	// 		controller: 'blogsController'
+	// 	})
+
+	// 	.segment('test', {
+	// 		default: true,
+	// 		templateUrl: 'templates/section1/test.html',
+	// 		controller: 'testController'
+	// 	})
+
+	// $routeProvider.otherwise({ redirectTo: '/' })
 })
 
 app.filter('Demofilter',function(){

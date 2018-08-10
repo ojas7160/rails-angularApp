@@ -20,6 +20,7 @@
 //= require ng-file-upload/ng-file-upload.min.js
 //= require angular-route
 //= require angular-route-segment
+//= require angular-ui-router
 //= require activestorage
 //= require_tree ./angular
 

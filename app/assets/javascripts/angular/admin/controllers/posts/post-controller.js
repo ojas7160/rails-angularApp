@@ -1,9 +1,9 @@
 postControllerModule = angular.module('myAdmin.controllers')
 
-var postController = function($scope, $http, Upload){
+var postController = function($scope, $http, Upload, $routeSegment){
 
 	$scope.posts = []
-
+	$scope.$routeSegment = $routeSegment;
 	var posts = function(){
 		$http.get('/api/v1/posts').then(function(response){
 			console.log(response)
@@ -85,4 +85,4 @@ var postController = function($scope, $http, Upload){
 	}
 }
 
-postControllerModule.controller('postController', ['$scope', '$http', 'Upload', postController])
+postControllerModule.controller('postController', ['$scope', '$http', 'Upload', '$routeSegment', postController])

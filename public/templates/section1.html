@@ -3,10 +3,14 @@
 		<div class="well">
 			<ul class="nav nav-list">
 				<li ng-class="{active: ('s1.home' | routeSegmentStartsWith)}">
-					<a href="#/section1">Home</a>
+					<a href="#/section1/home">Home</a>
+				</li>
+
+				<li>
+					<a href="#/section1/test">Test</a>
 				</li>
 				
-				<li class="nav-header">Items</li>
+				<!-- <li class="nav-header">Items</li>
 				
 				<li ng-repeat="i in items" ng-class="{active: ('s1.itemInfo' | routeSegmentStartsWith) && ('id' | routeSegmentParam) == i}">
 					<a ng-href="#/{{i}}">Item {{i}}</a>
@@ -16,7 +20,7 @@
 					<a href="#/prefs">Preferences</a>
 				</li>
 				
-				<li class="nav-header">Error handling</li>
+				<li class="nav-header">Error handling</li> -->
 				
 				<li>
 					<button class="btn" ng-class="{active: test.btnClicked}" ng-click="test.btnClicked = !test.btnClicked">Click me!</button>
@@ -25,6 +29,5 @@
 			</ul>
 		</div>
 	</div>
-		
-	<div class="span9 anim" app-view-segment="1"></div>
+	<div class="" app-view-segment="1"></div>
 </div>

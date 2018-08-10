@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
 	def landing
-		redirect_to '/bloganaire'
+		redirect_to '/posts'
 	end
 
 	def home
