@@ -1,14 +1,14 @@
 <div ng-controller="appController">
 	<div class="span3">
 		<div class="well">
-			<ul class="nav nav-list">
+			<!-- <ul class="nav nav-list">
 				<li ng-class="{active: ('s1.home' | routeSegmentStartsWith)}">
 					<a href="#/section1/home">Home</a>
 				</li>
 
 				<li>
 					<a href="#/section1/test">Test</a>
-				</li>
+				</li> -->
 				
 				<!-- <li class="nav-header">Items</li>
 				
@@ -22,12 +22,19 @@
 				
 				<li class="nav-header">Error handling</li> -->
 				
-				<li>
+				<!-- <li>
 					<button class="btn" ng-class="{active: test.btnClicked}" ng-click="test.btnClicked = !test.btnClicked">Click me!</button>
 					<span class="label" ng-show="test.btnClicked">Clicked</span>
 				</li>
-			</ul>
+			</ul> -->
+			<div class="">
+	        <a class="" ui-sref="#">AngularUI Router</a>
+	    </div>
+	    <ul class="">
+	        <li><a ui-sref="home">Home</a></li>
+	        <li><a ui-sref="about">About</a></li>
+	    </ul>
 		</div>
 	</div>
-	<div class="" app-view-segment="1"></div>
+	<div class="container" ui-view></div>
 </div>

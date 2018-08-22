@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   	registration: 'users/registrations'
   }
   authenticated :user do
-    root to: 'home#landing'
+    root to: 'home#index'
   end
   unauthenticated do
     devise_scope :user do
@@ -53,6 +53,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/section1/*path' => 'home#index'
+  get '/*path' => 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

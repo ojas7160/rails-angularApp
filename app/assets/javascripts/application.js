@@ -24,7 +24,6 @@
 //= require activestorage
 //= require_tree ./angular
 
-
 // require turbolinks
 
 
