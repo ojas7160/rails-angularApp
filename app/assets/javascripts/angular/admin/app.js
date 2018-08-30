@@ -43,22 +43,38 @@ app.config(['$qProvider', function ($qProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/section1');
 
     $stateProvider
 
     		.state('section1', {
-    			url: '/',
+    			url: '/section1',
     			templateUrl: 'templates/section1.html'
     		})
 
         // HOME STATES AND NESTED VIEWS ========================================
-        .state('home', {
-            url: '/home',
-            templateUrl: 'templates/section1/home.html'
+        // .state('home', {
+        //     url: '/home',
+        //     templateUrl: 'templates/section1/home.html'
+        // })
+
+        .state('section1.home', {
+          url: '/home',
+          templateUrl: 'templates/section1/home.html',
+          controller: function($scope) {
+            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+          }
         })
 
-        .state('home.list', {
+        .state('section1.about', {
+          url: '/about',
+          templateUrl: 'templates/section1/test.html',
+          controller: function($scope) {
+            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+          }
+        })
+
+        .state('section1.home.list', {
           url: '/list',
           templateUrl: 'templates/section1/pref.html',
           controller: function($scope) {
