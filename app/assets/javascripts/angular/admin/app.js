@@ -43,14 +43,27 @@ app.config(['$qProvider', function ($qProvider) {
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    // $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
+
+    		.state('section1', {
+    			url: '/',
+    			templateUrl: 'templates/section1.html'
+    		})
 
         // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/home',
             templateUrl: 'templates/section1/home.html'
+        })
+
+        .state('home.list', {
+          url: '/list',
+          templateUrl: 'templates/section1/pref.html',
+          controller: function($scope) {
+            $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+          }
         })
 
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
