@@ -39,6 +39,7 @@ Rails.application.routes.draw do
           end
         end
       end
+      
       devise_scope :user do
         resources :registrations
       end
@@ -53,6 +54,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/*path' => 'home#index'
+  get '/section1/*path' => 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
