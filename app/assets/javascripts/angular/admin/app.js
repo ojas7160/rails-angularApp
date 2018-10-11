@@ -15,6 +15,8 @@ app.config(['$routeSegmentProvider', '$routeProvider', '$locationProvider', func
   $routeSegmentProvider.
 
     when('/', 'app').
+    when('/posts', 'app.posts').
+    when('/blogs', 'app.blogs').
     // when('/section1/prefs',    's1.prefs').
     // when('/section1/:id',      's1.itemInfo').
     // when('/section1/:id/edit', 's1.itemInfo.edit').
@@ -23,18 +25,18 @@ app.config(['$routeSegmentProvider', '$routeProvider', '$locationProvider', func
     segment('app', {
         templateUrl: '/templates/app/app.html',
         controller: 'appIndexController',
-    });
+    }).
 
-    // within().
+    within().
 
-    //     segment('home', {
-    //         default: true,
-    //         templateUrl: 'templates/section1/home.html'}).
+        segment('posts', {
+            templateUrl: 'templates/app/posts.html'
+        }).
 
-    //     segment('itemInfo', {
-    //         templateUrl: 'templates/section1/item.html',
-    //         controller: Section1ItemCtrl,
-    //         dependencies: ['id']}).
+        segment('blogs', {
+            templateUrl: 'templates/app/blogs.html'
+        });
+
 
     //     within().
       
