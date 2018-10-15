@@ -1,2 +1,49 @@
 <h1>posts.html</h1>
 <a href="/blogs"> Blogs </a>
+
+<div class="container">
+  <div class="full-height">
+    <div class="col-md-3">
+      <div class="card-look full-height">
+        <div>{{user.name}}</div>
+        <div>{{user.email}}</div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card-look mb-20 p-30" ng-repeat="post in posts">
+        <div class="col-md-4">
+          <img src="../../app/assets/images/blog.jpg" width="80" height="80">
+        </div>
+        <div class="col-md-8">
+          <div>
+            <a href="/posts/{{post.slug}}">
+              <b>Title:</b> {{post.title}}
+            </a>
+          </div>
+          <div>
+            <b>Description:</b> {{post.description}}
+          </div>
+        </div>
+        <div class="">
+          <span>{{post.likes}}</span>
+          <button class="btn btn-secondary" ng-click="like(post, $index)">Like</button>
+          <span>{{post.dislikes}}</span>
+          <button class="btn btn-danger" ng-click="dislike(post, $index)">Dislike</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card-look full-height">
+        <div>
+          hello
+        </div>
+      </div>
+    </div>
+    <a class="btn btn-primary" ng-href="/posts/new">new</a>
+  </div>
+  <div class="full-height bg-blue">
+    hello height.
+  </div>
+</div>

@@ -1,7 +1,6 @@
 postControllerModule = angular.module('myAdmin.controllers')
 
-var postController = function($scope, $http, Upload, $routeSegment){
-
+var postController = function($scope, $http, Upload, $routeSegment, $routeParams){
 	$scope.posts = []
 	$scope.$routeSegment = $routeSegment;
 	var posts = function(){
@@ -85,4 +84,4 @@ var postController = function($scope, $http, Upload, $routeSegment){
 	}
 }
 
-postControllerModule.controller('postController', ['$scope', '$http', 'Upload', '$routeSegment', postController])
+postControllerModule.controller('postController', ['$scope', '$http', 'Upload', '$routeSegment', '$routeParams', postController])

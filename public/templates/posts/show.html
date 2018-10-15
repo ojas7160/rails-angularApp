@@ -5,17 +5,17 @@
 
   <div>
     <span class="label label-default">Title</span>
-    <span class="label label-default">{{Title}}</span>
+    <span class="">{{post.title}}</span>
   </div>
 
   <div>
     <span class="label label-default">Description</span>
-    <span class="label label-default">{{description}}</span>
+    <span class="">{{post.description}}</span>
   </div>
 
   <div>
-    <button class="btn btn-secondary">Back</button>
-    <button class="btn btn-primary">Edit</button>
+    <a href="/posts" class="btn btn-secondary">Back</a>
+    <a href="/posts/{{post.slug}}/edit" class="btn btn-primary">Edit</a>
     <button class="btn btn-danger">Delete</button>
   </div>
 </div>

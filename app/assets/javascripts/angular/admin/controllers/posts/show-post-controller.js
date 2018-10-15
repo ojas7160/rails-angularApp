@@ -1,11 +1,13 @@
 showPostModule = angular.module('myAdmin.controllers');
 
-var showPostController = function($http, $scope){
-	$http.get('/api/v1/posts/'+postId).then(function(response){
+var showPostController = function($http, $scope, $routeParams){
+	console.log($routeParams.postId)
+	$http.get('/api/v1/posts/'+$routeParams.postId)
+	.then(function(response){
 		console.log(response)
 		$scope.post = response.data.data
-		$scope.postImage = response.data.image
-		$scope.postImage = $scope.postImage.split('?')[0]
+		// $scope.postImage = response.data.image
+		// $scope.postImage = $scope.postImage.split('?')[0]
 	})
 
 	$scope.delete = function(post){
@@ -15,4 +17,4 @@ var showPostController = function($http, $scope){
 	}
 }
 
-showPostModule.controller('showPostController', ['$http', '$scope', showPostController])
+showPostModule.controller('showPostController', ['$http', '$scope', '$routeParams', showPostController])

@@ -1,8 +1,8 @@
 EditPostModule = angular.module('myAdmin.controllers')
 
-var EditPostController = function($http, $scope){
+var EditPostController = function($http, $scope, $routeParams){
 
-	$http.get('/api/v1/posts/'+postId+'/edit').then(function(response){
+	$http.get('/api/v1/posts/'+$routeParams.postId+'/edit').then(function(response){
 		console.log(response)
 		$scope.post = response.data.data
 	})
@@ -14,4 +14,4 @@ var EditPostController = function($http, $scope){
 	}
 }
 
-EditPostModule.controller('EditPostController', ['$http', '$scope', EditPostController])
+EditPostModule.controller('EditPostController', ['$http', '$scope', '$routeParams', EditPostController])

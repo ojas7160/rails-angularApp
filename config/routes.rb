@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get '/', to: 'home#home'
     end
   end
-  resources :posts
+  # resources :posts
 
   devise_scope :user do
 	  get 'login', to: 'users/sessions#new'
@@ -46,14 +46,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :blogs
+  # resources :blogs
 
-  resources :users do
-    collection do
-      get :currentUser
-    end
-  end
+  # resources :users do
+  #   collection do
+  #     get :currentUser
+  #   end
+  # end
 
-  get '/section1/*path' => 'home#index'
+  get '/*path' => 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
