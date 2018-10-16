@@ -24,7 +24,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :posts
+      resources :posts do 
+        collection do
+          get :find_users_who_did_vote
+        end
+      end
       resources :votes
       resources :blogs
       resources :sessions do

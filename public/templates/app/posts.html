@@ -26,9 +26,9 @@
           </div>
         </div>
         <div class="">
-          <span>{{post.likes}}</span>
+          <a ng-click="findVotes(post, 1)">{{post.likes}}</a>
           <button class="btn btn-secondary" ng-click="like(post, $index)">Like</button>
-          <span>{{post.dislikes}}</span>
+          <a ng-click="findVotes(post, -1)">{{post.dislikes}}</a>
           <button class="btn btn-danger" ng-click="dislike(post, $index)">Dislike</button>
         </div>
       </div>

@@ -57,6 +57,15 @@ class Api::V1::PostsController < ApplicationController
 		end
 	end
 
+	def find_users_who_did_vote
+		if @post.present?
+			@users = @post.votes.where(value: params[:value]).collect{|vote| vote.user}
+			render json: {success: true, users: @users}
+		else
+			render json: {success: false}
+		end
+	end
+
 
 	private
 		def post_params

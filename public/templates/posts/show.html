@@ -16,7 +16,7 @@
   <div>
     <a href="/posts" class="btn btn-secondary">Back</a>
     <a href="/posts/{{post.slug}}/edit" class="btn btn-primary">Edit</a>
-    <button class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" ng-click="deletePost(post)">Delete</a>
   </div>
 </div>
 <!-- <%= link_to t('.back', :default => t("helpers.links.back")),

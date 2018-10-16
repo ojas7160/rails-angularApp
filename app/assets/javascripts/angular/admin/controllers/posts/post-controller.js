@@ -82,6 +82,14 @@ var postController = function($scope, $http, Upload, $routeSegment, $routeParams
 			}
 		})
 	}
+
+	$scope.findVotes = function(post, value){
+		$http.get('/api/v1/posts/find_users_who_did_vote?id='+post.slug+'&value='+value)
+		.then(function(response){
+			console.log(response)
+
+		})
+	}
 }
 
 postControllerModule.controller('postController', ['$scope', '$http', 'Upload', '$routeSegment', '$routeParams', postController])

@@ -12,6 +12,7 @@ app.config(['$routeSegmentProvider', '$routeProvider', '$locationProvider', func
 
   when('/', 'app').
   when('/posts', 'app.posts').
+  when('/posts/new', 'app.posts-new').
   when('/posts/:postId', 'app.posts-show').
   when('/posts/:postId/edit', 'app.posts-edit').
 
@@ -27,6 +28,10 @@ app.config(['$routeSegmentProvider', '$routeProvider', '$locationProvider', func
 
     segment('posts', {
       templateUrl: 'templates/app/posts.html',
+      controller: "postController"
+    }).
+    segment('posts-new', {
+      templateUrl: 'templates/posts/new.html',
       controller: "postController"
     }).
     segment('posts-show', {

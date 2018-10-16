@@ -10,7 +10,7 @@ var showPostController = function($http, $scope, $routeParams){
 		// $scope.postImage = $scope.postImage.split('?')[0]
 	})
 
-	$scope.delete = function(post){
+	$scope.deletePost = function(post){
 		$http.delete('/api/v1/posts/'+post.id).then(function(response){
 			console.log(response)
 		})
