@@ -33,7 +33,7 @@ var postController = function($scope, $http, Upload, $routeSegment, $routeParams
 			data: {post}
 		}).then(function(response){
 			console.log(response)
-		});
+		});	
 	}
 
 	$scope.delete = function(post){
